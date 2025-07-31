@@ -16,11 +16,11 @@ namespace Blog.External.Presentations.Api.Controllers
         
         [HttpPost("register")]
         public async Task<IActionResult> RegisterAsync(
-            [FromBody] RegisterUserCommand command,
+            [FromBody] LoginUserCommand command,
             CancellationToken cancellationToken)
         {
             var result = await _dispatcher
-                .CommandAsync<RegisterUserCommand, CustomResult>(
+                .CommandAsync<LoginUserCommand, CustomResult>(
                     command, cancellationToken);
 
             return ResponseApi(result);
