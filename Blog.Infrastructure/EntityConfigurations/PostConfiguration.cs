@@ -9,14 +9,14 @@ namespace Blog.External.Infrastructures.Persistences.EntityConfigurations
         public void Configure(EntityTypeBuilder<Post> builder)
         {
             builder.ToTable("post");
-            builder.HasKey(p => p.Id).HasName("id");
+            builder.HasKey(p => p.Id).HasName("Id");
 
-            builder.Property(p => p.Id).HasColumnName("id")
+            builder.Property(p => p.Id).HasColumnName("Id")
                 .ValueGeneratedOnAdd();
 
-            builder.Property(p => p.Title).HasColumnName("title");
-            builder.Property(p => p.Content).HasColumnName("content");
-            builder.Property(p => p.UserId).HasColumnName("userId");
+            builder.Property(p => p.Title).HasColumnName("Title");
+            builder.Property(p => p.Content).HasColumnName("Content");
+            builder.Property(p => p.UserId).HasColumnName("UserId");
 
             builder.HasOne(x => x.User)
                 .WithMany(x => x.Posts)

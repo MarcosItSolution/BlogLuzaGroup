@@ -57,8 +57,8 @@ namespace Blog.Internal.Applications.Commands.Users
                 };
 
                 var token = new JwtSecurityToken(
-                    issuer: "Blog.Api",
-                    audience: "Blog.Api",
+                    issuer: jwtSettings["Issuer"],
+                    audience: jwtSettings["Audience"],
                     claims: claims,
                     expires: DateTime.UtcNow.AddHours(2),
                     signingCredentials: creds
