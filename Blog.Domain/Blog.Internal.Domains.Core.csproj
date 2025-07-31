@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Entities\" />
+    <None Remove="Abstractions\" />
+    <None Remove="Entities\Posts\" />
+    <None Remove="Entities\Users\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entities\" />
+    <Folder Include="Abstractions\" />
+    <Folder Include="Entities\Posts\" />
+    <Folder Include="Entities\Users\" />
+  </ItemGroup>
+</Project>
