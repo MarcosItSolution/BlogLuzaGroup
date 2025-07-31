@@ -16,15 +16,15 @@ namespace Blog.External.Presentations.Api.Middlewares.Swagger
             services.AddSwaggerGen(options =>
             {
                 options.OperationFilter<SwaggerDefaultValues>();
-                //options.OperationFilter<SwaggerLanguageHeader>();
 
                 options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Name = "Authorization",
+                    Type = Microsoft.OpenApi.Models.SecuritySchemeType.ApiKey,
                     Scheme = "Bearer",
-                    Type = SecuritySchemeType.Http,
-                    In = ParameterLocation.Header,
-                    Description = "Esta API usa autenticação e autorização. Example: \"Authorization: Bearer {token}\""
+                    BearerFormat = "JWT",
+                    In = Microsoft.OpenApi.Models.ParameterLocation.Header,
+                    Description = "Insira o token no formato: Bearer {seu token}"
                 });
 
                 options.AddSecurityRequirement(new OpenApiSecurityRequirement

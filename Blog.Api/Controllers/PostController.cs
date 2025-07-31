@@ -2,6 +2,7 @@
 using Blog.Internal.Applications.Core.Abstractions;
 using Blog.Internal.Applications.Core.Commands.Posts;
 using Blog.Internal.Applications.Core.Queries.Posts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -16,6 +17,7 @@ namespace Blog.External.Presentations.Api.Controllers
 
         // GET: api/values
         [HttpGet("getposts")]
+        [Authorize]
         public async Task<IActionResult> GetPostsAsync(
             CancellationToken cancellationToken)
         {
@@ -30,6 +32,7 @@ namespace Blog.External.Presentations.Api.Controllers
 
         // GET api/values/5
         [HttpGet("getpost/{id}")]
+        [Authorize]
         public async Task<IActionResult> GetPostAsync(
             [FromQuery] GetPostsByIdQuery query,
             CancellationToken cancellationToken)
@@ -44,6 +47,7 @@ namespace Blog.External.Presentations.Api.Controllers
 
         // POST api/values
         [HttpPost("newpost")]
+        [Authorize]
         public async Task<IActionResult> PostAsync(
             [FromBody] CreatePostCommand command,
             CancellationToken cancellationToken)
@@ -57,6 +61,7 @@ namespace Blog.External.Presentations.Api.Controllers
 
         // PUT api/values/5
         [HttpPut("updatepost/{id}")]
+        [Authorize]
         public async Task<IActionResult> PutAsync(
             int id,
             [FromBody] UpdatePostCommand command,
@@ -73,6 +78,7 @@ namespace Blog.External.Presentations.Api.Controllers
 
         // DELETE api/values/5
         [HttpDelete("removepost/{id}")]
+        [Authorize]
         public async Task<IActionResult> Delete(
             int id, CancellationToken cancellationToken)
         {
